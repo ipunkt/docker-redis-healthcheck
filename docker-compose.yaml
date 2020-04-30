@@ -1,0 +1,11 @@
+version: '2.1'
+services:
+  redis:
+    image: redis:5
+    ports:
+      - 8080:80
+  healthcheck:
+    build: .
+    network_mode: service:redis
+    volumes:
+      - ./public:/app/public
